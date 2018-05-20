@@ -1,0 +1,17 @@
+CREATE TABLE `Students` (
+  `id` TINYINT NOT NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR(50),
+  `addr` VARCHAR(50),
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Courses` (
+  `id` TINYINT NOT NULL AUTO_INCREMENT DEFAULT NULL,
+  `studentid` TINYINT NULL DEFAULT NULL,
+  `courseid` TINYINT NULL DEFAULT NULL,
+  `name` VARCHAR(50),
+  PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `Courses` ADD FOREIGN KEY (studentid) REFERENCES `Students` (`id`);
+ALTER TABLE `Courses` ADD FOREIGN KEY (courseid) REFERENCES `Students` (`id`);
